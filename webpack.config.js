@@ -9,6 +9,15 @@ module.exports = {
     filename: "main.js",
     path: outputPath,
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        // !!The chain is executed in "reverse order"!!
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
   devServer: {
     // when webpack web server on open dist(=>index.html)
     contentBase: outputPath,
