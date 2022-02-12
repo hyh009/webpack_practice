@@ -1,5 +1,6 @@
 import _ from "lodash";
 import "./style.css";
+import logo from "./santa.png";
 
 function component() {
   const element = document.createElement("div");
@@ -10,3 +11,8 @@ function component() {
 
 document.body.appendChild(component());
 document.body.classList.add("bdColor");
+
+const image = new Image();
+image.src = logo;
+image.classList.add("image");
+document.body.appendChild(image);

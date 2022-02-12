@@ -1,3 +1,8 @@
 .bdColor {
   background-color: #8dd6f9;
 }
+.image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
