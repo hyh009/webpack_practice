@@ -16,6 +16,17 @@ module.exports = {
         // !!The chain is executed in "reverse order"!!
         use: ["style-loader", "css-loader"],
       },
+      {
+        // i for uppercase
+        test: /\.(jep?g|png|gif|svg|ico)$/i,
+        loader: "url-loader",
+        options: {
+          // images that bigger than 2kb will be put into ./images folder
+          // to improve performance
+          limit: 2048,
+          name: "./images/[name].[ext]",
+        },
+      },
     ],
   },
   devServer: {
