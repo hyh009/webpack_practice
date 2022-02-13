@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const outputPath = path.resolve(__dirname, "dist");
 
 module.exports = {
@@ -19,12 +19,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        // !!The chain is executed in "reverse order"!!
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         // i for uppercase
@@ -54,6 +49,11 @@ module.exports = {
       template: "./src/index.html",
       // output filename
       filename: "./index.html",
+    }),
+
+    new MiniCssExtractPlugin({
+      // hash => to create unique file name
+      filename: "[name].[hash].css",
     }),
   ],
 };
